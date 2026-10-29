@@ -8,10 +8,28 @@ Lab Time:
 """
 
 def exact_change():
-    # Write your code here
-    # Make sure to indent properly
     input_val = int(input())
-   
+
+    if input_val <= 0:
+        print("No change")
+        return
+
+    coins = [
+        (100, "Dollar", "Dollars"),
+        (25, "Quarter", "Quarters"),
+        (10, "Dime", "Dimes"),
+        (5, "Nickel", "Nickels"),
+        (1, "Penny", "Pennies"),
+    ]
+
+    for value, singular, plural in coins:
+        count = input_val // value
+        input_val = input_val % value
+        if count == 1:
+            print(f"1 {singular}")
+        elif count > 1:
+            print(f"{count} {plural}")
+
 
 if __name__ == '__main__':
     exact_change()
